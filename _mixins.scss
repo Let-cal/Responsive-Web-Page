@@ -1,0 +1,73 @@
+@mixin display($flex: "row") {
+    @if $flex == "row" {
+        display: flex;
+        flex-direction: row;
+    }
+    @if $flex == "column" {
+        display: flex;
+        flex-direction: column;
+    }
+    @if $flex == "column-reverse" {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    @if $flex == "space-between" {
+        display: flex;
+        justify-content: space-between;
+    }
+    @if $flex == "justify" {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@mixin button() {
+    padding: 10px 20px 10px 20px;
+    background: #f84646;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+@mixin view-transition($direction: "left") {
+    position: absolute;
+    @if $direction == "left" {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    @if $direction == "top" {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    @if $direction == "both" {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@mixin body {
+    position: relative;
+    top: 874px;
+}
+@mixin header {
+    background-image: url(./images/Rectangle\ 1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 754px;
+    width: 100%;
+    position: absolute;
+}
+
+@mixin display-block {
+    background-repeat: no-repeat;
+    background-color: white;
+    background-position: center;
+}
+
+@mixin maxwidth($value, $value2) {
+    @media screen and (max-width: $value) and (min-width: $value2) {
+        @content;
+    }
+}

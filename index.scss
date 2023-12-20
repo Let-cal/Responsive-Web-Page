@@ -1,0 +1,581 @@
+@import "./mixins";
+@import "./variables";
+.page {
+    overflow: scroll;
+    height: auto;
+}
+.header {
+    @include header;
+    @include maxwidth($max-width-mac, $min-width-mac) {
+        height: 647px;
+    }
+    @include maxwidth($max-width-mobile, $min-width-mobile) {
+        height: 601px;
+        background-position: bottom;
+        & i {
+            display: block !important;
+            font-size: 35px;
+        }
+        &-title {
+            margin-right: 0 !important;
+            width: 100%;
+            padding: 30px 16px !important;
+            justify-content: space-between;
+        }
+    }
+    &-title {
+        & i {
+            display: none;
+        }
+        @include display("row");
+        gap: 20px;
+        position: absolute;
+        right: 0;
+        padding: 30px 0;
+        align-items: center;
+        margin-right: 5%;
+
+        &__btn {
+            @include button;
+            @include maxwidth($max-width-mac, $min-width-mac) {
+                font-size: 14px;
+            }
+        }
+        & a {
+            @include maxwidth($max-width-mobile, $min-width-mobile) {
+                display: none;
+            }
+            @include maxwidth($max-width-mac, $min-width-mac) {
+                font-size: 14px;
+            }
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+    }
+    &__content {
+        @include view-transition("top");
+        @include display("column");
+        gap: 25px;
+        left: 10%;
+        @include maxwidth($max-width-mac, $min-width-mac) {
+            left: 5%;
+            width: 75%;
+        }
+        @include maxwidth($max-width-mobile, $min-width-mobile) {
+            justify-content: center;
+            @include view-transition("both");
+            width: 100%;
+            padding: 20px;
+        }
+        width: 42%;
+
+        &--1 {
+            font-weight: bold;
+            font-size: 56px;
+            @include maxwidth($max-width-mobile, $min-width-mobile) {
+                font-size: 42px;
+                text-align: center;
+            }
+        }
+        &--2 {
+            font-size: $size-default;
+            @include maxwidth($max-width-mac, $min-width-mac) {
+                padding-right: 17%;
+            }
+            @include maxwidth($max-width-mobile, $min-width-mobile) {
+                text-align: center;
+                font-size: 12px;
+            }
+        }
+        &--3 {
+            @include maxwidth($max-width-mobile, $min-width-mobile) {
+                display: flex;
+                justify-content: center;
+            }
+        }
+        &--btn {
+            @include button;
+            display: flex;
+            align-items: center;
+        }
+        &--form {
+            background: white;
+            @include display("space-between");
+            border-radius: 10px;
+            border: 1px solid white;
+            width: 80%;
+            padding: 5px;
+            @include maxwidth($max-width-mac, $min-width-mac) {
+                width: 60%;
+            }
+            @include maxwidth($max-width-mobile, $min-width-mobile) {
+                width: 100%;
+            }
+        }
+        &--search {
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+        }
+    }
+}
+.body {
+    @include body;
+    @include maxwidth($max-width-mobile, $min-width-mobile) {
+        top: 739px;
+    }
+    &-decs {
+        @include display("column");
+        gap: 62px;
+        padding: 0px 120px;
+        @include maxwidth($max-width-mobile, $min-width-mobile) {
+            padding: 0px;
+        }
+        &__title {
+            @include display("column");
+            align-items: center;
+            gap: 30px;
+            & h3 {
+                font-size: 40px;
+                @include maxwidth($max-width-mobile, $min-width-mobile) {
+                    font-size: 24px;
+                }
+            }
+            & p {
+                font-size: 20px;
+                padding: 0px 169px;
+                text-align: center;
+                @include maxwidth($max-width-mac, $min-width-mac) {
+                    padding: 0;
+                }
+                @include maxwidth($max-width-mobile, $min-width-mobile) {
+                    font-size: 12px;
+                    padding: 0px;
+                }
+            }
+        }
+        &__elements {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 0 0 100px 0;
+            @include maxwidth($max-width-mac, $min-width-mac) {
+                justify-content: space-around;
+            }
+            @include maxwidth($max-width-mobile, $min-width-mobile) {
+                @include display("column");
+                align-items: center;
+            }
+            & i {
+                font-size: 70px;
+            }
+            & h3 {
+                font-size: 23px;
+                @include maxwidth($max-width-mobile, $min-width-mobile) {
+                    font-size: 24px;
+                }
+            }
+            & p {
+                text-align: center;
+                font-size: size-default;
+                @include maxwidth($max-width-mobile, $min-width-mobile) {
+                    font-size: 18px;
+                }
+            }
+            &--1,
+            &--2,
+            &--3,
+            &--4,
+            &--5,
+            &--6 {
+                padding: 20px;
+                width: 32%;
+                @include maxwidth($max-width-mobile, $min-width-mobile) {
+                    width: 100%;
+                    padding: 0 60px;
+                }
+                @include display("column");
+                align-items: center;
+                @include maxwidth($max-width-mac, $min-width-mac) {
+                    padding: 0;
+                    width: 38%;
+                }
+            }
+        }
+    }
+    &-footer {
+        background: $background-color-default;
+        @include display("column");
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        @include maxwidth($max-width-mobile, $min-width-mobile) {
+            height: auto;
+        }
+        gap: 45px;
+        &__title {
+            text-align: center;
+        }
+        & h3 {
+            font-size: 45px;
+            color: white;
+            @include maxwidth($max-width-mobile, $min-width-mobile) {
+                font-size: 36px;
+            }
+        }
+        &__p {
+            font-size: $size-default;
+            color: white;
+            @include maxwidth($max-width-mobile, $min-width-mobile) {
+                font-size: 14px;
+            }
+        }
+        &__option {
+            @include display("row");
+            @include maxwidth($max-width-mobile, $min-width-mobile) {
+                @include display("column");
+                gap: 44.5px;
+                padding-bottom: 50px;
+            }
+            gap: 30px;
+            &--1,
+            &--2,
+            &--3,
+            &--4 {
+                @include display("row");
+                @include maxwidth($max-width-mobile, $min-width-mobile) {
+                    @include display("column-reverse");
+                    gap: 44.5px;
+                }
+                gap: 10px;
+                align-items: center;
+                & svg {
+                    cursor: pointer;
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+                    @include maxwidth($max-width-mobile, $min-width-mobile) {
+                        transform: rotate(90deg);
+                        &:hover {
+                            transform: rotate(90deg) scale(1.2);
+                        }
+                    }
+                }
+            }
+            & h5 {
+                color: white;
+                font-size: 17px;
+                @include maxwidth($max-width-mac, $min-width-mac) {
+                    font-size: 14px;
+                }
+                margin: 0;
+            }
+            & i {
+                font-size: 30px;
+            }
+        }
+    }
+
+    &-content {
+        padding: 100px;
+        @include maxwidth($max-width-mobile, $min-width-mobile) {
+            padding: 15px;
+        }
+        @include maxwidth($max-width-mac, $min-width-mac) {
+            padding: 60px;
+        }
+
+        @include display("column");
+        gap: 150px;
+        &__btn {
+            @include button;
+            width: 30%;
+            @include maxwidth($max-width-mac, $min-width-mac) {
+                width: 40%;
+            }
+            @include maxwidth($max-width-mobile, $min-width-mobile) {
+                width: 100%;
+            }
+        }
+        &__1 {
+            width: 100%;
+            @include display("row");
+            @include maxwidth($max-width-mobile, $min-width-mobile) {
+                @include display("column-reverse");
+            }
+            &--decs {
+                width: 50%;
+                @include maxwidth($max-width-mobile, $min-width-mobile) {
+                    width: 100%;
+                    align-items: center;
+                    text-align: center;
+                    gap: 40px;
+                }
+                @include maxwidth($max-width-mac, $min-width-mac) {
+                    padding-right: 50px;
+                }
+                @include display("column");
+                justify-content: space-between;
+
+                & h3 {
+                    font-size: 64px;
+                    @include maxwidth($max-width-mac, $min-width-mac) {
+                        font-size: 58px;
+                    }
+                    @include maxwidth($max-width-mobile, $min-width-mobile) {
+                        font-size: 36px;
+                    }
+                }
+                & p {
+                    font-size: $size-default;
+                    color: #808080;
+                    @include maxwidth($max-width-mac, $min-width-mac) {
+                        font-size: 14px;
+                    }
+                    @include maxwidth($max-width-mobile, $min-width-mobile) {
+                        font-size: 14px;
+                        line-height: 28.5px;
+                    }
+                }
+            }
+            &--img {
+                background-image: url(images/Illustration2.png);
+                background-position: right;
+                width: 50%;
+                @include maxwidth($max-width-mobile, $min-width-mobile) {
+                    width: 100%;
+                }
+                height: 500px;
+                @include maxwidth($max-width-mac, $min-width-mac) {
+                    height: 424px;
+                }
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        }
+        &__2 {
+            width: 100%;
+            @include display("row");
+            @include maxwidth($max-width-mobile, $min-width-mobile) {
+                @include display("column");
+            }
+            &--decs {
+                width: 50%;
+                @include maxwidth($max-width-mobile, $min-width-mobile) {
+                    width: 100%;
+                    align-items: center;
+                    text-align: center;
+                    gap: 40px;
+                }
+                @include display("column");
+                justify-content: space-between;
+                @include maxwidth($max-width-mac, $min-width-mac) {
+                    padding-left: 50px;
+                }
+
+                & h3 {
+                    font-size: 64px;
+                    @include maxwidth($max-width-mac, $min-width-mac) {
+                        font-size: 58px;
+                    }
+                    @include maxwidth($max-width-mobile, $min-width-mobile) {
+                        font-size: 36px;
+                    }
+                }
+                & p {
+                    font-size: $size-default;
+                    color: #808080;
+                    @include maxwidth($max-width-mac, $min-width-mac) {
+                        font-size: 14px;
+                    }
+                    @include maxwidth($max-width-mobile, $min-width-mobile) {
+                        font-size: 14px;
+                        line-height: 28.5px;
+                    }
+                }
+            }
+            &--img {
+                background-image: url(images/Illustration1.png);
+                background-position: left;
+                width: 50%;
+                @include maxwidth($max-width-mobile, $min-width-mobile) {
+                    width: 100%;
+                }
+                height: 500px;
+                @include maxwidth($max-width-mac, $min-width-mac) {
+                    height: 424px;
+                }
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        }
+    }
+    .body-triangle {
+        background: #f4f5f7;
+        height: 605px;
+        @include maxwidth($max-width-mobile, $min-width-mobile) {
+            height: auto;
+            padding: 70px 0 90px 0;
+        }
+        text-align: center;
+        @include display("column");
+        @include display("justify");
+        &__title {
+            & h3 {
+                font-size: 48px;
+            }
+            & p {
+                font-size: 18px;
+            }
+        }
+        &__content {
+            @include display("row");
+            @include maxwidth($max-width-mobile, $min-width-mobile) {
+                @include display("column");
+            }
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            &--div {
+                height: 96px;
+                width: 170px;
+                background-color: white;
+                @include display("justify");
+            }
+            &--1,
+            &--2,
+            &--3,
+            &--4,
+            &--5 {
+                @include display("column");
+                gap: 24px;
+            }
+        }
+    }
+
+    &-contact {
+        @include display("column");
+        @include display("justify");
+        padding: 160px 0px;
+        &__user {
+            background-image: url(images/Users.png);
+            background-repeat: no-repeat;
+            height: 120px;
+            width: 100%;
+            background-position: center;
+            position: relative;
+            &--circle {
+                width: 61px;
+                height: 61px;
+                /* background: #ff00005c; */
+                background: #f84646;
+                position: absolute;
+                left: 50%;
+                border-radius: 100%;
+                z-index: -999;
+            }
+        }
+        &__content {
+            text-align: center;
+            & h3 {
+                font-size: 48px;
+            }
+
+            & p {
+                font-size: $size-default;
+            }
+        }
+        &__btn {
+            padding: 25px 40px 25px 40px !important;
+            @include button;
+            width: 204px;
+            height: 70px;
+            font-size: 24px;
+            @include display("justify");
+        }
+        &__button {
+            padding: 20px 0;
+        }
+    }
+    &-Footer {
+        height: 536px;
+        @include maxwidth($max-width-mobile, $min-width-mobile) {
+            height: 1340px;
+        }
+        background-color: $background-color-default;
+        position: relative;
+        &__div {
+            @include display("column");
+            width: 100%;
+            height: 56.7%;
+            padding: 0px 100px;
+            @include maxwidth($max-width-mac, $min-width-mac) {
+                height: auto;
+                padding: 0 50px;
+            }
+            @include maxwidth($max-width-mobile, $min-width-mobile) {
+                height: auto;
+                padding: 0 30px;
+            }
+            position: absolute;
+            @include view-transition("both");
+            gap: 50px;
+        }
+        &__elements {
+            @include display("row");
+            gap: 100px;
+            @include maxwidth($max-width-mobile, $min-width-mobile) {
+                @include display("column");
+                gap: 49px;
+            }
+            @include maxwidth($max-width-mac, $min-width-mac) {
+                gap: 50px;
+            }
+        }
+        &__contact {
+            @include display("row");
+            @include maxwidth($max-width-mobile, $min-width-mobile) {
+                @include display("column-reverse");
+                gap: 65px;
+            }
+            justify-content: space-between;
+            width: 100%;
+            color: white;
+            &--icon {
+                @include display("row");
+                gap: 20px;
+                cursor: pointer;
+            }
+            & i {
+                font-size: 25px;
+                &:hover {
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+    &-elements {
+        &__header {
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+        }
+        &__list {
+            @include display("column");
+            gap: 20px;
+        }
+        &__a {
+            text-decoration: none;
+            color: #dee2e6;
+            font-size: 16px;
+            font-family: Inter;
+            line-height: 32px;
+            &:hover {
+                color: white;
+            }
+        }
+    }
+}
